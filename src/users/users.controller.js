@@ -1,7 +1,13 @@
 const userService = require("./users.service");
 
 const findAllUserController = async (req, res) => {
-  res.send({ message: "Find all ok!" });
+  const users = await userService.findAllUserService();
+
+  if (users.length === 0) {
+    res.status(400).send({ message: "There are no registered users." });
+  }
+
+  res.send(users);
 };
 
 const createUserController = async (req, res) => {
