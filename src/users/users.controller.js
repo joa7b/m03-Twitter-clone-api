@@ -1,4 +1,5 @@
 const userService = require("./users.service");
+const authService = require("../auth/auth.service");
 
 const findAllUserController = async (req, res) => {
   const users = await userService.findAllUserService();
